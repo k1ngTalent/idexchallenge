@@ -3,9 +3,12 @@ import { Card, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { handleRequest } from "../store/actions";
 import { GET_PROFILE } from "../store/constant";
+import i18next from 'i18next';
+import { useTranslation } from "react-i18next";
 
 export default function Profile() {
     const dispatch = useDispatch();
+    const { t, i18n } = useTranslation();
     const [userProfile, setUserProfile] = useState();
     const { profile } = useSelector((state) => ({
         profile: state.user.profile,
@@ -46,7 +49,7 @@ export default function Profile() {
                                             <div className="d-flex flex-column align-items-start">
                                                 <div className="d-flex flex-column align-items-start">
                                                     <span className="text-muted">
-                                                        Full name
+                                                    {t('fullname')}
                                                     </span>
                                                     <span>
                                                         {userProfile.userAccountInfo &&
@@ -57,7 +60,7 @@ export default function Profile() {
                                                 </div>
                                                 <div className="d-flex flex-column align-items-start">
                                                     <span className="text-muted">
-                                                        Email
+                                                    {t('email')}
                                                     </span>
                                                     <span>
                                                         {userProfile.userAccountInfo &&
@@ -68,12 +71,12 @@ export default function Profile() {
                                                 </div>
                                             </div>
                                             <span className="text-primary">
-                                                Edit Profile
+                                            {t('editprofile')}
                                             </span>
                                         </div>
                                         <div className="py-4 border-bottom d-flex justify-content-start">
                                             <span className="text-primary">
-                                                Change password
+                                            {t('changepassword')}
                                             </span>
                                         </div>
                                         <div className="py-4 border-bottom d-flex justify-content-start">
@@ -82,23 +85,23 @@ export default function Profile() {
                                             </span> */}
                                             <Form.Group controlId="exampleForm.ControlSelect1" className="d-flex  align-items-center">
                                                 <Form.Label className="text-primary text-nowrap mr-4">
-                                                    Select App Language
+                                                {t('selectlang')}
                                                 </Form.Label>
-                                                <Form.Control as="select">
-                                                    <option>English</option>
-                                                    <option>French</option>
+                                                <Form.Control as="select" onChange={(e)=>{i18next.changeLanguage(e.target.value);}}>
+                                                    <option value='en'>English</option>
+                                                    <option value='fr'>French</option>
                                                 </Form.Control>
                                             </Form.Group>
                                         </div>
                                         <div className="py-3 d-flex justify-content-between">
                                             <span className="text-primary">
-                                                Logout
+                                            {t('logout')}
                                             </span>
                                             <span>
                                                 <Form.Group controlId="formBasicCheckbox">
                                                     <Form.Check
                                                         type="checkbox"
-                                                        label="Logout on all devices"
+                                                        label={ t('logoutofdevices')}
                                                     />
                                                 </Form.Group>
                                             </span>
@@ -108,7 +111,7 @@ export default function Profile() {
                             </Card>
                         )}
                     </div>
-                    <span className="font-weight-bold">Recent Likes</span>
+                    <span className="font-weight-bold">{t('recentlikes')}</span>
                 </div>
             </section>
         </Fragment>

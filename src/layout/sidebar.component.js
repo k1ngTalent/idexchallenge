@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from '../app_logo.png'
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 export default function Sidebar(){
+    const { t, i18n } = useTranslation();
     return (
         <nav id="sidebar">
         <div class="sidebar-header mt-3">
@@ -10,10 +12,10 @@ export default function Sidebar(){
 
         <ul class="list-unstyled components">
             <li className="active">
-                <Link to="/">Profile</Link>
+                <Link to="/">{t('profile')}</Link>
             </li>
             <li className="active">
-                <Link to="/contact">Help</Link>
+                <Link to="/contact">{t('help')}</Link>
             </li>
         </ul>
     </nav>

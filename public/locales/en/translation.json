@@ -1,0 +1,17 @@
+{
+          "fullname": "Full Name",
+          "email": "Email",
+        "changepassword":"Change password",
+        "selectlang":"Select App language",
+        "recentlikes":"Recent likes",
+        "profile":"Profile",
+        "help":"Help",
+        "logout":"Logout",
+        "logoutofdevices":"Logout of all devices",
+        "editprofile":"Edit Profile",
+        "contactus":"Contact Us",
+        "letusknowhowwecanhelp":"Let us know how we can help",
+        "letusknowsuggestion":"Let us know if you have any questions or suggestions we could be more happy to help you!",
+        "send":"Send"
+        
+  }
